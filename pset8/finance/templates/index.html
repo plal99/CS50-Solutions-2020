@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index page
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Share</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        {% for item in details %}
+        <tr>
+            <td>{{ item["symbol"] }}</td>
+            <td>{{ item["name"] }}</td>
+            <td>{{ item["qty"] }}</td>
+            <td>${{ item["price"] }}</td>
+            <td>${{ item["value"] }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>CASH</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>${{cash}}.00</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$10,000.00</td>
+        </tr>
+    </table>
+
+{% endblock %}
